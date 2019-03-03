@@ -10,7 +10,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class GMC extends AbstractCommand {
 
-    public static final String GMC_COMMAND = "gmc";
+    public static final String GMC_COMMAND = "gmcr";
 
     @Override
     public boolean onCommand(CommandSender sender, Command command0, String label, String args[]) {

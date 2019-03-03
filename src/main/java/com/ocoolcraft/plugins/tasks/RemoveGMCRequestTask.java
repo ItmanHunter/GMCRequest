@@ -15,10 +15,10 @@ public class RemoveGMCRequestTask extends BukkitRunnable {
 
     @Override
     public void run() {
-        DataService dataService = DataServiceFactory.getDataService();
-        if (dataService.checkRequest(playername)) {
-            dataService.removeRequest(playername);
-        }
+        plugin.getServer()
+                .dispatchCommand(
+                        plugin.getServer().getConsoleSender(),
+                        "gamemode survival " + playername);
     }
 
     private static JavaPlugin plugin;

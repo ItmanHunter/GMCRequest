@@ -2,7 +2,7 @@ package com.ocoolcraft.plugins;
 
 public class Permissions {
 
-    public static final String GMC_PERMISSION = "gmcrequest.gmc";
+    public static final String GMC_PERMISSION = "gmcrequest.gmcr";
 
     public static final String GMC_DISPLAY_PERMISSION = "gmcrequest.gmcdisplay";
 

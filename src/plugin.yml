@@ -5,7 +5,7 @@ main: com.ocoolcraft.plugins.GMCRequest
 api-version: 1.13
 commands:
   gmc:
-    permission: gmcrequest.gmc
+    permission: gmcrequest.gmcr
     description: Request for creative mode
     usage: /gmc
   gmcaccept:
@@ -20,3 +20,12 @@ commands:
     permission: gmcrequest.gmcdisplay
     description: Display all Requests for creative mode
     usage: /gmcdisplay
+permissions:
+  gmcrequest.all:
+    default: false
+    description: Gives all permissions for GMCRequest
+    children:
+      gmcrequest.gmcr: true
+      gmcrequest.gmcaccept: true
+      gmcrequest.gmcreject: true
+      gmcrequest.gmcdisplay: true

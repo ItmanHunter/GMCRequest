@@ -1,0 +1,22 @@
+name: GMCRequest
+version: 1.0
+author: ItmanHunter
+main: com.ocoolcraft.plugins.GMCRequest
+api-version: 1.13
+commands:
+  gmc:
+    permission: gmcrequest.gmc
+    description: Request for creative mode
+    usage: /gmc
+  gmcaccept:
+    permission: gmcrequest.gmcaccept
+    description: Accept Request for creative mode
+    usage: /gmcaccept
+  gmcreject:
+    permission: gmcrequest.gmcreject
+    description: Reject Request for creative mode
+    usage: /gmcreject
+  gmcdisplay:
+    permission: gmcrequest.gmcdisplay
+    description: Display all Requests for creative mode
+    usage: /gmcdisplay

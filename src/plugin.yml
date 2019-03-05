@@ -4,10 +4,10 @@ author: ItmanHunter
 main: com.ocoolcraft.plugins.GMCRequest
 api-version: 1.13
 commands:
-  gmc:
+  gmcr:
     permission: gmcrequest.gmcr
     description: Request for creative mode
-    usage: /gmc
+    usage: /gmcr
   gmcaccept:
     permission: gmcrequest.gmcaccept
     description: Accept Request for creative mode

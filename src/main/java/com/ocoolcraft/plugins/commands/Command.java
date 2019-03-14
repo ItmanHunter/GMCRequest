@@ -6,7 +6,8 @@ public enum Command {
     GMCCommand(GMC.GMC_COMMAND,new GMC()),
     GMCAcceptCommand(GMCAccept.GMC_ACCEPT_COMMAND,new GMCAccept()),
     GMCDisplayCommand(GMCDisplay.GMC_DISPLAY_COMMAND,new GMCDisplay()),
-    GMCRejectCommand(GMCReject.GMC_REJECT_COMMAND,new GMCReject());
+    GMCRejectCommand(GMCReject.GMC_REJECT_COMMAND,new GMCReject()),
+    RGMCCommand(RGMC.RGMC_COMMAND,new RGMC());
 
     private String commandString;
     private AbstractCommand command;

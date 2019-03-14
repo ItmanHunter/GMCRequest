@@ -16,4 +16,8 @@ public interface DataService {
 
     void close();
 
+    List<String> getAllGMCs();
+
+    void removeGMC(String playername);
+
 }

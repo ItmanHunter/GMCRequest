@@ -1,6 +1,7 @@
 package com.ocoolcraft.plugins.commands;
 
 import com.ocoolcraft.plugins.Permissions;
+import com.ocoolcraft.plugins.tasks.RemoveGMCRequestTask;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -29,6 +30,8 @@ public class GMCAccept extends AbstractCommand {
                                         getPlugin().getServer().getConsoleSender(),
                                         "gamemode creative " + acceptName);
                         getDataService().removeRequest(acceptName);
+                        RemoveGMCRequestTask.registerTask(player.getName());
+                        player.sendMessage(ChatColor.RED + " Your gmc is accept!!");
                     } else {
                         player.sendMessage(ChatColor.RED + " No such request exists.. ");
                     }

@@ -38,6 +38,10 @@ public class DataBaseService implements DataService {
                 + "	playername text PRIMARY KEY\n"
                 + ");";
         conn.createStatement().execute(createRequestTable);
+        String createMonitorTable = "CREATE TABLE IF NOT EXISTS " + "gmc_monitor" + " (\n"
+                + "	playername text PRIMARY KEY\n"
+                + ");";
+        conn.createStatement().execute(createMonitorTable);
     }
 
     @Override
@@ -57,7 +61,31 @@ public class DataBaseService implements DataService {
 
     public boolean checkRequest(String playername) {
         try {
-            String sql = "SELECT playername FROM gmc_requests WHERE playername = ?";
+            return checkRequests(playername) || checkMonitor(playername);
+        } catch (Exception ex) {
+            throw new RuntimeException("error: " + ex);
+        }
+    }
+
+    private boolean checkRequests(String playername) {
+        try {
+            return checkTable(playername,"gmc_requests");
+        } catch (Exception ex) {
+            throw new RuntimeException("error: " + ex);
+        }
+    }
+
+    private boolean checkMonitor(String playername) {
+        try {
+            return checkTable(playername,"gmc_monitor");
+        } catch (Exception ex) {
+            throw new RuntimeException("error: " + ex);
+        }
+    }
+
+    private boolean checkTable(String playername,String tableName) {
+        try {
+            String sql = "SELECT playername FROM " + tableName + " WHERE playername = ?";
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, playername);
             ResultSet rs = pstmt.executeQuery();
@@ -67,10 +95,9 @@ public class DataBaseService implements DataService {
         }
     }
 
-    @Override
-    public void removeRequest(String playername) {
+    private void removeTableRow(String playername,String tableName) {
         try {
-            String sql = "DELETE FROM gmc_requests WHERE playername = ?";
+            String sql = "DELETE FROM " + tableName + " WHERE playername = ?";
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, playername);
             pstmt.executeUpdate();
@@ -80,8 +107,41 @@ public class DataBaseService implements DataService {
     }
 
     @Override
+    public void removeRequest(String playername) {
+        try {
+            removeTableRow(playername,"gmc_requests");
+        } catch (Exception ex) {
+            throw new RuntimeException("error: " + ex);
+        }
+    }
+
+    @Override
+    public void removeGMC(String playername) {
+        try {
+            removeTableRow(playername,"gmc_monitor");
+        } catch (Exception ex) {
+            throw new RuntimeException("error: " + ex);
+        }
+    }
+
+    @Override
     public List<String> getAllRequests() {
         String sql = "SELECT playername FROM gmc_requests";
+        try {
+            ResultSet rs = conn.prepareStatement(sql).executeQuery();
+            List<String> requests = new ArrayList<>();
+            while (rs.next()) {
+                requests.add(rs.getString("playername"));
+            }
+            return requests;
+        } catch (Exception e) {
+            throw new RuntimeException("error: " + e);
+        }
+    }
+
+    @Override
+    public List<String> getAllGMCs() {
+        String sql = "SELECT playername FROM gmc_monitor";
         try {
             ResultSet rs = conn.prepareStatement(sql).executeQuery();
             List<String> requests = new ArrayList<>();

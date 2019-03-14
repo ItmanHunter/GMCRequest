@@ -19,6 +19,7 @@ public class RemoveGMCRequestTask extends BukkitRunnable {
                 .dispatchCommand(
                         plugin.getServer().getConsoleSender(),
                         "gamemode survival " + playername);
+        DataServiceFactory.getDataService().removeGMC(playername);
     }
 
     private static JavaPlugin plugin;

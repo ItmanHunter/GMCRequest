@@ -22,4 +22,12 @@ public class FileUtil {
             throw new RuntimeException(ex);
         }
     }
+
+    public static void appendStringToFile(String data,File file) {
+        try {
+            FileUtils.writeStringToFile(file, data,Charset.defaultCharset(),true);
+        }catch (Exception ex) {
+            throw new RuntimeException(ex);
+        }
+    }
 }

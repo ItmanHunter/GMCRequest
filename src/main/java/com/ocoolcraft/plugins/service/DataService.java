@@ -10,6 +10,8 @@ public interface DataService {
 
     boolean checkRequest(String playername);
 
+    boolean checkMonitor(String playername);
+
     void removeRequest(String playername);
 
     List<String> getAllRequests();

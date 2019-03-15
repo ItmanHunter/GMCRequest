@@ -1,6 +1,5 @@
 package com.ocoolcraft.plugins.tasks;
 
-import com.ocoolcraft.plugins.service.DataService;
 import com.ocoolcraft.plugins.service.DataServiceFactory;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;

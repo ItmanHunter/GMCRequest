@@ -9,4 +9,6 @@ public class Permissions {
     public static final String GMC_ACCEPT_PERMISSION = "gmcrequest.gmcaccept";
 
     public static final String GMC_REJECT_PERMISSION = "gmcrequest.gmcreject";;
+
+    public static final String RGMC_PERMISSION = "gmcrequest.rgmc";;
 }

@@ -67,7 +67,7 @@ public class DataBaseService implements DataService {
         }
     }
 
-    private boolean checkRequests(String playername) {
+    public boolean checkRequests(String playername) {
         try {
             return checkTable(playername,"gmc_requests");
         } catch (Exception ex) {
@@ -75,7 +75,8 @@ public class DataBaseService implements DataService {
         }
     }
 
-    private boolean checkMonitor(String playername) {
+    @Override
+    public boolean checkMonitor(String playername) {
         try {
             return checkTable(playername,"gmc_monitor");
         } catch (Exception ex) {

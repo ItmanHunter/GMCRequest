@@ -1,7 +1,7 @@
 name: GMCRequest
 version: 1.0
 author: ItmanHunter
-main: com.ocoolcraft.plugins.GMCRequest
+main: GMCRequest
 api-version: 1.13
 commands:
   gmcr:
@@ -20,6 +20,10 @@ commands:
     permission: gmcrequest.gmcdisplay
     description: Display all Requests for creative mode
     usage: /gmcdisplay
+  rgmc:
+    permission: gmcrequest.rgmc
+    description: Remove a player from creative mode
+    usage: /rgmc <playername>
 permissions:
   gmcrequest.all:
     default: false
@@ -29,3 +33,4 @@ permissions:
       gmcrequest.gmcaccept: true
       gmcrequest.gmcreject: true
       gmcrequest.gmcdisplay: true
+      gmcrequest.rgmc: true

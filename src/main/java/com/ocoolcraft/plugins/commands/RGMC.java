@@ -17,7 +17,7 @@ public class RGMC extends AbstractCommand {
     public boolean onCommand(CommandSender sender, Command command0, String label, String args[]) {
         if (sender instanceof Player) {
             Player player = (Player) sender;
-            if (player.hasPermission(Permissions.GMC_ACCEPT_PERMISSION)) {
+            if (player.hasPermission(Permissions.RGMC_PERMISSION)) {
                 if (args.length < 1) {
                     player.sendMessage(ChatColor.RED  + " Usage /rgmc <playername>");
                     return true;
